@@ -1,13 +1,13 @@
 load "$NCARG_ROOT/lib/ncarg/nclscripts/csm/gsn_code.ncl"
 load "$NCARG_ROOT/lib/ncarg/nclscripts/wrf/WRFUserARW.ncl"
 
+loadscript ("./module_input_single.ncl")                ;control input file setting (single file)
 loadscript ("./module_output_type.ncl")                 ;output setting for gsn_open_wks
 loadscript ("./module_basemap_mpres.ncl")               ;mpres setting
-loadscript ("./module_contour_temperature.ncl")  ;res setting
-loadscript ("./module_input_single.ncl")                ;control input file setting
+
+loadscript ("./module_contour_temperature.ncl")         ;res & colormap setting
 
 begin
-
 
   pltres = True
 
@@ -26,6 +26,7 @@ begin
 
       wks = gsn_open_wks(type,"Temperature_2m_Single")
       contour = wrf_contour(a,wks,temperature,res)
+      gsn_define_colormap(wks, colormap)
       plot = wrf_map_overlays(a,wks,(/contour/),pltres,mpres)
 
 

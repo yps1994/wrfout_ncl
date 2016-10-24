@@ -1,10 +1,11 @@
 load "$NCARG_ROOT/lib/ncarg/nclscripts/csm/gsn_code.ncl"
 load "$NCARG_ROOT/lib/ncarg/nclscripts/wrf/WRFUserARW.ncl"
 
+loadscript ("./module_input_multi.ncl")                ;control input file setting (multiple files)
 loadscript ("./module_output_type.ncl")                ;output setting for gsn_open_wks
 loadscript ("./module_basemap_mpres.ncl")              ;mpres setting
+
 loadscript ("./module_contour_windspeed.ncl")          ;res setting
-loadscript ("./module_input_multi.ncl")                ;control input file setting
 
 begin
 

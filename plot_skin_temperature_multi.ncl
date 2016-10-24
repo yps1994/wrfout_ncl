@@ -1,10 +1,11 @@
 load "$NCARG_ROOT/lib/ncarg/nclscripts/csm/gsn_code.ncl"
 load "$NCARG_ROOT/lib/ncarg/nclscripts/wrf/WRFUserARW.ncl"
 
+loadscript ("./module_input_multi.ncl")                 ;control input file setting (multiple files)
 loadscript ("./module_output_type.ncl")                 ;output setting for gsn_open_wks
 loadscript ("./module_basemap_mpres.ncl")               ;mpres setting
-loadscript ("./module_contour_skin_temperature.ncl")  ;res setting
-loadscript ("./module_input_multi.ncl")                ;control input file setting
+
+loadscript ("./module_contour_skin_temperature.ncl")    ;res and colormap setting
 
 begin
 
@@ -25,8 +26,8 @@ begin
 
       wks = gsn_open_wks(type,"Skin_Temperature_" + sprinti("%03i",it))
       contour = wrf_contour(a[0],wks,temperature,res)
+      gsn_define_colormap(wks, colormap)
       plot = wrf_map_overlays(a[0],wks,(/contour/),pltres,mpres)
-
 
     end do      ; END OF LEVEL LOOP
    

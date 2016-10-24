@@ -11,5 +11,7 @@ begin
   res@cnMinLevelValF  = 10.     ; set the minimum contour level
   res@cnMaxLevelValF  = 50.     ; set the maximum contour level
   res@cnLevelSpacingF = 1      ; set the interval between contours
-   
+
+  ;colormap = "ncl_default"
+  colormap ="BlueYellowRed"
 end
