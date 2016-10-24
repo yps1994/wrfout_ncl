@@ -1,1 +1,1 @@
-# wrfout_ncl
+# wrfout-ncl
