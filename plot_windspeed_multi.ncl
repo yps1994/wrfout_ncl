@@ -1,9 +1,9 @@
 load "$NCARG_ROOT/lib/ncarg/nclscripts/csm/gsn_code.ncl"
 load "$NCARG_ROOT/lib/ncarg/nclscripts/wrf/WRFUserARW.ncl"
 
-loadscript ("./module_output_type.ncl")                 ;output setting for gsn_open_wks
-loadscript ("./module_basemap_mpres.ncl")               ;mpres setting
-loadscript ("./module_contour_windspeed_explicit.ncl")  ;res setting
+loadscript ("./module_output_type.ncl")                ;output setting for gsn_open_wks
+loadscript ("./module_basemap_mpres.ncl")              ;mpres setting
+loadscript ("./module_contour_windspeed.ncl")          ;res setting
 loadscript ("./module_input_multi.ncl")                ;control input file setting
 
 begin
@@ -25,14 +25,10 @@ begin
       Windspeed@description = "WIND SPEED"
       Windspeed@units = "ms^-1"
 
-
       wks = gsn_open_wks(type,"Windspeed_" + sprinti("%03i",it))
-
-      colors = (/"white","black","white", \
-		"white","steelblue1","seagreen3","springgreen1","yellow1","tan1"/)
-      gsn_define_colormap(wks, colors)
-
       contour = wrf_contour(a[0],wks,Windspeed,res)
+
+      gsn_define_colormap(wks, colormap)
 
       plot = wrf_map_overlays(a[0],wks,(/contour/),pltres,mpres)
 
