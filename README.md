@@ -10,6 +10,7 @@ This repository serves as an "library" for plotting various parameters in the ou
 Before getting started, first you need to understand the file naming. Files with prefix <i>"module"</i> are configuration files. There are four important types of module files.
 - <b>module_input_single.ncl</b> is responsible for selecting a <b>single wrfout</b> for NCL to plot.
 - <b>module_input_multi.ncl</b> is responsible for selecting <b>multiples wrfout</b> for NCL to plot.
+- <b>module_output_type.ncl</b> is responsible for selecting the format that NCL outputs. (E.g. ps, png, pdf, and so on).
 - <b>module_basemap_mpres.ncl</b> is responsible for configuring the geographic information.
 - <b>module_(plot_type)_(parameters_name).ncl</b> are responsible for plotting "parameters_name" from wrfout in the "plot_type" style with colormap defined inside.
 
