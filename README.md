@@ -1,5 +1,7 @@
 # wrfout-ncl
 
+## This repository is deprecated (as NCL is pivoted to Python). Please consider using Python with wrf-python package.
+
 This repository serves as an "library" for plotting various parameters in the output of Weather Research and Forecast (WRF) model. It used module approach so as to reduce the time on making consistent configuration, as well as creating more readible code.
 
 # Requirement
